@@ -1,5 +1,5 @@
 .formGroup {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .formGroup label {
@@ -7,10 +7,19 @@
 }
 
 .formGroup input {
-    width: 450px;
-    /* height: 25px; */
-    padding: 10px 12px;
+    width: 350px;
+    height: 40px;
+    margin: 10px auto;
     border: 1px solid #d1d5db;
+    box-sizing: border-box;
+} 
+.formGroup input:focus {
+  outline: none;
+  border: 2px solid #d1d5db;
+}
+.formGroup > input::placeholder{
+    padding: 30px 10px;
+
 }
 .error{
     color: red;

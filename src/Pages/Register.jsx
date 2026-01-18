@@ -102,11 +102,9 @@ function Register() {
     return (
         <>
             <div className={styles.registerPage}>
-                <h2>Đăng ký</h2>
-                <h5>Tạo tài khoản để bắt đầu</h5>
                 <div className={styles.formRegis}>
-                    <h2>Thông tin cá nhân</h2>
-                    <h5>Vui lòng điền đầy đủ thông tin để đăng ký</h5>
+                    <h1>Đăng ký</h1>
+                    <h5>Tạo tài khoản để bắt đầu</h5>
                     {error && <p className={styles.error}>{error}</p>}
                     <form onSubmit={handleSubmit}>
                         <Input
@@ -154,7 +152,7 @@ function Register() {
                     </form>
                     <p className={styles.loginlink}>
                         Đã có tài khoản?{" "}
-                        <span onClick={() => navigate("/login")}>Đăng nhập</span>
+                        <strong onClick={() => navigate("/login")}>Đăng nhập ngay</strong>
                     </p>
                 </div>
 
