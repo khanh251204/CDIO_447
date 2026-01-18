@@ -1,0 +1,17 @@
+.formGroup {
+    margin-top: 20px;
+}
+
+.formGroup label {
+    display: block
+}
+
+.formGroup input {
+    width: 450px;
+    /* height: 25px; */
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+}
+.error{
+    color: red;
+}

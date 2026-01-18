@@ -1,6 +1,7 @@
 import { Home } from "../Pages/Home";
 import { PrivateRoute } from "./Private";
 import { Routes, Route } from "react-router-dom";
+import Register from "../Pages/Register";
 
 export const AppRouter = () => {
     return (
@@ -11,6 +12,7 @@ export const AppRouter = () => {
                     <Home />
                 }
             />
+            <Route path="/register" element={<Register />} />
 
             <Route
                 path="/dashboard"
@@ -20,6 +22,9 @@ export const AppRouter = () => {
                     </PrivateRoute>
                 }
             />
+
+
         </Routes>
     );
 }
+
