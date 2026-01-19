@@ -154,7 +154,7 @@ function Register() {
                     </form>
                     <p className={styles.loginlink}>
                         Đã có tài khoản?{" "}
-                        <span onClick={() => navigate("/login")}>Đăng nhập</span>
+                        <span onClick={() => navigate("/Login")}>Đăng nhập</span>
                     </p>
                 </div>
 
