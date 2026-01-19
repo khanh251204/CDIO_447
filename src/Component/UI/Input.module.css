@@ -7,20 +7,21 @@
 }
 
 .formGroup input {
-    width: 350px;
+    width: 250px;
     height: 40px;
-    margin: 10px auto;
+    margin: 2px auto;
     border: 1px solid #d1d5db;
     box-sizing: border-box;
+    caret-color: #3b82f6;
+    padding-left: 10px;
+    border-radius: 10px;
 } 
 .formGroup input:focus {
   outline: none;
-  border: 2px solid #d1d5db;
+  border: 1px solid #3b82f6;
 }
-.formGroup > input::placeholder{
-    padding: 30px 10px;
 
-}
+
 .error{
     color: red;
 }
