@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.registerPage {
+    width: 360px; 
+}
+
+h1{
+    margin-bottom: 3px;
+}
+
+
+.formRegis {
+    width: 100%;
+    background: #fff;
+    padding: 20px 0;
+    border-radius: 20px;
+    border: 1px solid #BBB8B8;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.loginlink{
+    text-align: center;
+}
+.loginlink strong{
+    color:#2563eb;
+    font-weight: 400;
+}
+.loginlink span:hover{
+    cursor: pointer;
+}
+.error{
+    margin-top: 10px;
+    color: red;
+    border: 1px solid rgb(238, 119, 119);
+    background-color: rgb(251, 224, 224);
+    padding: 10px ;
+}
+
+/* .form-group {
+    margin-top: 20px;
+}
+
+.form-group label {
+    display: block
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+} */
+/* .btn-register {
+  width: 100%;
+  margin-top: 22px;
+  padding: 12px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background: #1e40af;
+} */

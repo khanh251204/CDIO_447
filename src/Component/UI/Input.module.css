@@ -1,0 +1,27 @@
+.formGroup {
+    margin-top: 5px;
+}
+
+.formGroup label {
+    display: block
+}
+
+.formGroup input {
+    width: 250px;
+    height: 40px;
+    margin: 2px auto;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+    caret-color: #3b82f6;
+    padding-left: 10px;
+    border-radius: 10px;
+} 
+.formGroup input:focus {
+  outline: none;
+  border: 1px solid #3b82f6;
+}
+
+
+.error{
+    color: red;
+}

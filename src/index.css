@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600&display=swap&subset=vietnamese');
+
+body {
+  font-family: "Inter", sans-serif;
+}
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+
   line-height: 1.5;
   font-weight: 400;
 
