@@ -1,6 +1,7 @@
 import { Home } from "../Pages/Home";
 import { PrivateRoute } from "./Private";
 import { Routes, Route } from "react-router-dom";
+import {Dashboard} from "../Pages/dashboard";
 
 export const AppRouter = () => {
     return (
@@ -9,6 +10,12 @@ export const AppRouter = () => {
                 path="/"
                 element={
                     <Home />
+                }
+            />
+            <Route
+                path="/db"
+                element={
+                    <Dashboard />
                 }
             />
 
