@@ -3,16 +3,18 @@ import { useNavigate } from "react-router-dom"
 import styles from "./Login.module.css";
 import Input from "../Component/UI/Input";
 import Button from "../Component/UI/Button";
+import { useLogin } from "../Component/Hooks/useLogin";
 
 function login() {
     const navigate = useNavigate()
+    const { login: loginAPI, loading, error: apiError, setError } = useLogin()
 
     const [formData, setFormData] = useState({
-        emailOrPhone: "",
+        email: "",
         password: ""
     })
 
-    const [error, setError] = useState("")
+    const [error, setLocalError] = useState("")
 
     const handleChange = (e) => {
         setFormData({
@@ -24,29 +26,21 @@ function login() {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        setLocalError("")
         setError("")
 
-        if (!formData.emailOrPhone || !formData.password) {
-            setError("Vui lòng nhập đầy đủ thong tin")
+        if (!formData.email || !formData.password) {
+            setLocalError("Vui lòng nhập đầy đủ thông tin")
             return
         }
 
-        if (
-            formData.emailOrPhone === "patient@gmail.com" &&
-            formData.password === "123456"
-        ) {
-            // Giả lập JWT Token
-            const fakeToken = "jwt-token-demo";
-
-            // Lưu token
-            localStorage.setItem("token", fakeToken);
-
-            // Điều hướng
-            navigate("/");
-        } else {
-            setError("EmailOrPhone or Password khong hop le");
+        // Gọi API login
+        const result = await loginAPI(formData.email, formData.password)
+        
+        if (!result.success) {
+            setLocalError(result.error)
         }
     }
     return (
@@ -56,15 +50,16 @@ function login() {
                 <div className={styles.formLogin}>
                     <h1>Đăng nhập</h1>
                     <h5>Chào mừng bạn trở lại</h5>
-                    {error && <p className={styles.error}>{error}</p>}
+                    {(error || apiError) && <p className={styles.error}>{error || apiError}</p>}
                     <form onSubmit={handleSubmit}>
                         <Input
-                            label="Email hoặc số điện thoại"
-                            type="text"
-                            name="emailOrPhone"
-                            value={formData.emailOrPhone}
+                            label="Email"
+                            type="email"
+                            name="email"
+                            value={formData.email}
                             onChange={handleChange}
-                            placeholder="Nhập email hoặc số điện thoại"
+                            placeholder="Nhập email"
+                            disabled={loading}
                         />
                         <Input
                             label="Mật khẩu"
@@ -73,8 +68,13 @@ function login() {
                             value={formData.password}
                             onChange={handleChange}
                             placeholder="Nhập password"
+                            disabled={loading}
                         />
-                        <Button type="submit" text="Đăng nhập" />
+                        <Button 
+                            type="submit" 
+                            text={loading ? "Đang đăng nhập..." : "Đăng nhập"}
+                            disabled={loading}
+                        />
                     </form>
                     <p className={styles.registerlink}>
                         Chưa có tài khoản?{" "}
