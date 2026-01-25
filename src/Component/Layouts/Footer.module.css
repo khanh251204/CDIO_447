@@ -1,27 +1,31 @@
 .footer{
     width: 100%;
-    height: 307px;
+    margin: 30px auto;
 
 }
-.footer .container{
-    width:1090px ;
-}
+
 .footer .container .column{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
+
 .column li{
     text-align: left;
+    cursor: pointer;
+
+}
+.column li:nth-child(1){
+    width: 25%;
 
 }
 .column p{
-    color: gray;
+    color: #000000;
     font-size: 13px;
 }
 hr{
-    margin: 20px 0;
+    margin: 15px 0;
 }
 .copy{
     font-size: 15px;
