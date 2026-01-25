@@ -74,7 +74,7 @@ function login() {
                             onChange={handleChange}
                             placeholder="Nhập password"
                         />
-                        <Button type="submit" text="Đăng nhập" />
+                        <Button type="submit" text="Đăng nhập" className={styles.btnLogin}/>
                     </form>
                     <p className={styles.registerlink}>
                         Chưa có tài khoản?{" "}

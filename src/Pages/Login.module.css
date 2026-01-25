@@ -6,13 +6,14 @@
 
 .loginPage {
     width: 360px;
+    margin: 100px auto;
 }
-h1{
+
+h1 {
     margin-bottom: 3px;
 }
 
-
-.formLogin{
+.formLogin {
     width: 100%;
     background: #fff;
     padding: 20px 0;
@@ -23,21 +24,33 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
-.registerlink{
+
+.btnLogin {
+    background-color: #2563eb;
+    width: 250px;
+    color: white;
+    margin: 20px 0;
+    border-radius: 0%;
+}
+
+.registerlink {
     text-align: center;
 }
-.registerlink span{
-    color:#2563eb;
+
+.registerlink span {
+    color: #2563eb;
 }
-.registerlink span:hover{
+
+.registerlink span:hover {
     cursor: pointer;
 }
 
-.error{
+.error {
     margin-top: 10px;
     color: red;
     border: 1px solid rgb(238, 119, 119);
     background-color: rgb(251, 224, 224);
-    padding: 10px ;
+    padding: 10px;
 }
