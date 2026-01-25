@@ -1,0 +1,195 @@
+/* ===== Layout ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ===== Header ===== */
+.header {
+  margin-top: 32px;
+  margin-right: 500px;
+  text-align: left;  
+}
+
+.header h1 {
+  margin-bottom: 6px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.header p {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #6b7280;
+}
+/* ===== Stats ===== */
+.stats {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  margin-left: 30px;
+}
+
+.stat {
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.statIcon {
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+.stat p {
+  font-size: 14px;
+  color: #374151;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+
+.statBlue {
+  background: #eaf1ff;
+}
+
+.statGreen {
+  background: #e9f7ef;
+}
+
+.statPurple {
+  background: #f1eafe;
+}
+
+/* ===== Card chung ===== */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+  text-align: left;  
+
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.sub {
+  margin-top: 4px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ===== Actions ===== */
+.actions {
+  display: grid;
+  margin-left: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: left;  
+}
+
+.action {
+  width: 200px;
+  height: 80px;
+  padding: 16px;
+  border-radius: 16px;
+  color: #ffffff;
+  text-align: left; 
+} 
+.actionIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.action strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.action span {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===== Activity ===== */
+.activity {
+  display: flex;
+  align-items: center;
+  gap: 12px;          /* khoảng cách icon – chữ */
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 12px;
+  text-align: left; 
+}
+
+.activityIcon {
+  font-size: 18px;
+  color: #6b6c6e;
+  flex-shrink: 0;     /* icon không bị méo */
+}
+
+.activity p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+.recentTitle {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ===== Colors ===== */
+.blue {
+  background: #2563eb;
+}
+
+.green {
+  background: #16a34a;
+}
+
+.purple {
+  background: #7c3aed;
+}
+
+.blueLight {
+  background: #eff6ff;
+}
+
+.greenLight {
+  background: #ecfdf5;
+}

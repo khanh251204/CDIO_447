@@ -1,7 +1,7 @@
 import { Home } from "../Pages/Home";
 import { PrivateRoute } from "./Private";
 import { Routes, Route } from "react-router-dom";
-import {Dashboard} from "../Pages/dashboard";
+import Dashboard from "../Pages/dashboard";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 
