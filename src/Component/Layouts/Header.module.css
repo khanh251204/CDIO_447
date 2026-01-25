@@ -6,39 +6,33 @@ nav{
     top: 0;
     background: #fff;
     left: 0;
-    border-bottom: 1px solid #000 ;
+    border-bottom: 1px solid #ccc8c8 ;
 }
 nav .container{
     width: 1090px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 50px;
     
 }
 
 nav .logo{
     /* position: relative; */
     width: 150px;
-    margin: 10px 0 ;
+    /* margin: 30px 0 ; */
+
+}
+.btn .btnLogin{
+    width: 140px ;
+    /* height: 30px; */
+    background-color: #fff;
+    margin: 0 10px;
+}
+.btn .btnRegister{
+    width: 140px ;
+    /* height: 30px; */
+    background-color: #2563eb;
+    color:#fff;
 }
 
-nav ul li {
-    display: inline-block;
-    position: relative; 
-    padding: 20px 10px;
-    font-weight: 600;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s, border-color 0.3s;
-}
-
-nav ul li:hover, .bi-search:hover {
-    color: var(--blue);
-    border-bottom-color: var(--blue);
-}
-
-
-
-.container .bi-search{
-    padding: 20px 0;
-    cursor: pointer;
-}

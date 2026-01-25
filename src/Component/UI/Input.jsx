@@ -5,8 +5,7 @@ function Input({
   name,
   value,
   onChange,
-  placeholder,
-  error
+  placeholder,  
 }) {
   return (
     <div className={styles.formGroup}>
@@ -16,9 +15,7 @@ function Input({
         name={name}
         value={value}
         onChange={onChange}
-        placeholder={placeholder}
-      />
-      {error && <p className={styles.error}>{error}</p>}
+        placeholder={placeholder}      />
     </div>
   );
 }

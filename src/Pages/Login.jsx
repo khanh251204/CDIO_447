@@ -75,6 +75,7 @@ function login() {
                             text={loading ? "Đang đăng nhập..." : "Đăng nhập"}
                             disabled={loading}
                         />
+                        <Button type="submit" text="Đăng nhập" className={styles.btnLogin}/>
                     </form>
                     <p className={styles.registerlink}>
                         Chưa có tài khoản?{" "}

@@ -1,0 +1,166 @@
+.home {
+  font-family: Arial, sans-serif;
+}
+
+/* ================= HERO ================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;                /* NGĂN ẢNH ĐÈ CHỮ */
+  padding: 80px 100px;
+  background: #f5f9ff;
+  overflow: hidden;         
+}
+
+/* LEFT (TEXT) */
+.heroLeft {
+  flex: 1;
+  max-width: 520px;         /* KHÓA CHIỀU RỘNG CHỮ */
+  z-index: 2;
+}
+
+.tag {
+  display: inline-block;
+  background: #e8f0ff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.heroLeft h1 {
+  font-size: 44px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.heroLeft h1 span {
+  color: #2563eb;
+}
+
+.heroLeft p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.primaryBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.secondaryBtn {
+  background: white;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* RIGHT (IMAGE) */
+.heroRight {
+  flex: 1;
+  max-width: 480px;         /* KHÓA KHUNG ẢNH */
+  position: relative;
+}
+
+.heroRight img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* BADGE 98% */
+.trustBox {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.trustBox span {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.trustBox b {
+  font-size: 22px;
+  color: #2563eb;
+}
+
+/* ================= FEATURES ================= */
+.features {
+  padding: 70px 100px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.subTitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.featureItem {
+  background: #f8fafc;
+  padding: 26px;
+  border-radius: 14px;
+}
+
+/* ================= CTA ================= */
+.cta {
+  background: #f5f9ff;
+  padding: 70px;
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .heroLeft {
+    max-width: 100%;
+  }
+
+  .heroRight {
+    max-width: 100%;
+  }
+
+  .heroRight img {
+    height: 420px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
