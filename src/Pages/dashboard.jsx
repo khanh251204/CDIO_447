@@ -18,30 +18,30 @@ export default function Dashboard() {
       </header>
       {/* Stats */}
       <div className={styles.stats}>
-  <div className={`${styles.stat} ${styles.statBlue}`}>
-    <FaFolderOpen className={styles.statIcon} />
-    <div>
-      <p>Hồ sơ bệnh án</p>
-      <strong>2</strong>
-    </div>
-  </div>
+        <div className={`${styles.stat} ${styles.statBlue}`}>
+          <FaFolderOpen className={styles.statIcon} />
+          <div>
+            <p>Hồ sơ bệnh án</p>
+            <strong>2</strong>
+          </div>
+        </div>
 
-  <div className={`${styles.stat} ${styles.statGreen}`}>
-    <FaRegCommentDots className={styles.statIcon} />
-    <div>
-      <p>Tư vấn AI</p>
-      <strong>1</strong>
-    </div>
-  </div>
+        <div className={`${styles.stat} ${styles.statGreen}`}>
+          <FaRegCommentDots className={styles.statIcon} />
+          <div>
+            <p>Tư vấn AI</p>
+            <strong>1</strong>
+          </div>
+        </div>
 
-  <div className={`${styles.stat} ${styles.statPurple}`}>
-    <FaHeart className={styles.statIcon} />
-    <div>
-      <p>Tình trạng</p>
-      <strong>Tốt</strong>
-    </div>
-  </div>
-</div>
+        <div className={`${styles.stat} ${styles.statPurple}`}>
+          <FaHeart className={styles.statIcon} />
+          <div>
+            <p>Tình trạng</p>
+            <strong>Tốt</strong>
+          </div>
+        </div>
+      </div>
 
       {/* Quick Actions */}
       <section className={styles.card}>
@@ -74,28 +74,28 @@ export default function Dashboard() {
       </section>
 
       {/* Recent Activity */}
-<section className={styles.card}>
-  <h2 className={styles.recentTitle}>Hoạt động gần đây</h2>
-  <p className={styles.sub}>Lịch sử hoạt động của bạn</p>
+      <section className={styles.card}>
+        <h2 className={styles.recentTitle}>Hoạt động gần đây</h2>
+        <p className={styles.sub}>Lịch sử hoạt động của bạn</p>
 
-  <div className={styles.activityList}>
-    <div className={`${styles.activity} ${styles.blueLight}`}>
-      <FaCalendarCheck className={styles.activityIcon} />
-      <div>
-        <strong>Khám bệnh định kỳ</strong>
-        <p>10/10/2023 - BS. Trần Minh Hoàng</p>
-      </div>
-    </div>
+        <div className={styles.activityList}>
+          <div className={`${styles.activity} ${styles.blueLight}`}>
+            <FaCalendarCheck className={styles.activityIcon} />
+            <div>
+              <strong>Khám bệnh định kỳ</strong>
+              <p>10/10/2023 - BS. Trần Minh Hoàng</p>
+            </div>
+          </div>
 
-    <div className={`${styles.activity} ${styles.greenLight}`}>
-      <FaRobot className={styles.activityIcon} />
-      <div>
-        <strong>Tư vấn AI</strong>
-        <p>14/10/2023 - Triệu chứng đau đầu</p>
-      </div>
-    </div>
-  </div>
-</section>
+          <div className={`${styles.activity} ${styles.greenLight}`}>
+            <FaRobot className={styles.activityIcon} />
+            <div>
+              <strong>Tư vấn AI</strong>
+              <p>14/10/2023 - Triệu chứng đau đầu</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
