@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+    margin-top: 80px; /* Chiều cao của header */
+}
+
+.sidebar {
+  width: 25%;
+}
+
+.content.with-sidebar {
+  width: 75%;
+}

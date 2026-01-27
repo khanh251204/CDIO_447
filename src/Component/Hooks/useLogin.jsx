@@ -45,7 +45,7 @@ export const useLogin = () => {
                 toast.success('Đăng nhập thành công');
                 // Điều hướng về trang chủ
                 setLoading(false);
-                navigate('/');
+                navigate('/dashboard');
             }
         } catch (err) {
             const errorMessage = err.message || 'Lỗi khi đăng nhập';
