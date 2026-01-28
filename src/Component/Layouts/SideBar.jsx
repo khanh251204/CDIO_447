@@ -1,6 +1,6 @@
 import styles from './SideBar.module.css';
-import {jwtDecode} from "jwt-decode";
-
+import { jwtDecode } from "jwt-decode";
+import Notification from '../Layouts/Notification';
 
 
 export const SideBar = () => {
@@ -38,7 +38,6 @@ export const SideBar = () => {
     ];
     const token = localStorage.getItem("token");
     const user = token ? jwtDecode(token) : null;
-    console.log("Decoded user from token:", user);
     const userRole = user ? user.role : null;
     const filteredMenu = SIDEBAR_MENU.filter(item => item.roles.includes(userRole));
     return (
@@ -49,6 +48,12 @@ export const SideBar = () => {
                         <a href={item.path}>{item.label}</a>
                     </li>
                 ))}
+                <li>
+                    {/* <a href="/logout">Đăng xuất</a> */}
+                    <Notification
+                        userId={user.userId}
+                    />
+                </li>
             </ul>
         </div>
     )
