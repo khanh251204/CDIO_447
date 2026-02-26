@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import PrivateLayout from "./PrivateLayout";
+import {Dashboard} from "../Pages/Dashboard"
+
 
 export const AppRouter = () => {
     return (
@@ -49,7 +51,7 @@ export const AppRouter = () => {
                 }
             >
                 {/* 👇 TẤT CẢ NẰM TRONG OUTLET */}
-                <Route path="/dashboard" element={<div>Dashboard Page</div>} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 {/* sau này thêm */}
                 {/* <Route path="/profile" element={<Profile />} /> */}
                 {/* <Route path="/orders" element={<Orders />} /> */}
