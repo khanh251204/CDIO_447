@@ -6,7 +6,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import PrivateLayout from "./PrivateLayout";
 import {Dashboard} from "../Pages/Dashboard"
-
+import {Profile} from "../Pages/Profile"
 
 export const AppRouter = () => {
     return (
@@ -52,6 +52,7 @@ export const AppRouter = () => {
             >
                 {/* 👇 TẤT CẢ NẰM TRONG OUTLET */}
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/profile" element={<Profile />} />
                 {/* sau này thêm */}
                 {/* <Route path="/profile" element={<Profile />} /> */}
                 {/* <Route path="/orders" element={<Orders />} /> */}
