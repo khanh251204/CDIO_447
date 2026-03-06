@@ -1,130 +1,157 @@
 import { useState, useEffect } from "react";
 import styles from "./profile.module.css";
+import { Loading } from "../Component/UI/Loading";
+import { useProfile } from "../Component/Hooks/useProfile";
 
 export function Profile() {
-    const [height, setHeight] = useState("");
-    const [weight, setWeight] = useState("");
+
+    const { profile, loading, handleChange, updateProfile } = useProfile();
+
     const [bmi, setBmi] = useState(null);
     const [status, setStatus] = useState("");
 
     useEffect(() => {
-        if (height && weight) {
-            const h = height / 100;
-            const value = (weight / (h * h)).toFixed(1);
+
+        if (profile.height && profile.weight) {
+
+            const h = profile.height / 100;
+            const value = (profile.weight / (h * h)).toFixed(1);
+
             setBmi(value);
 
             if (value < 18.5) setStatus("Gầy");
             else if (value < 25) setStatus("Bình thường");
             else if (value < 30) setStatus("Thừa cân");
             else setStatus("Béo phì");
+
         } else {
+
             setBmi(null);
+
         }
-    }, [height, weight]);
+
+    }, [profile.height, profile.weight]);
+
+    if (loading) return <Loading />;
 
     return (
+
         <div className={styles.page}>
             <div className={styles.container}>
+
                 <h2>Thông tin cá nhân</h2>
                 <p>Quản lý và cập nhật thông tin sức khoẻ của bạn</p>
+
+                {/* ACCOUNT */}
                 <div className={styles.card}>
+
                     <h2>Thông Tin Tài Khoản</h2>
-                    <p className={styles.sub}>
-                        Cập nhật thông tin liên hệ của bạn
-                    </p>
 
                     <div className={styles.row}>
-                        {/* Email */}
+
                         <div className={styles.formGroup}>
-                            <label>
-                                <i className="fa-regular fa-envelope"></i> Email
-                            </label>
+                            <label>Email</label>
                             <input
                                 type="email"
-                                placeholder="Nhập email"
+                                name="email"
+                                value={profile.email}
+                                onChange={handleChange}
                             />
                         </div>
 
-                        {/* Số điện thoại */}
                         <div className={styles.formGroup}>
-                            <label>
-                                <i className="fa-solid fa-phone"></i> Số điện thoại
-                            </label>
+                            <label>Số điện thoại</label>
                             <input
                                 type="tel"
-                                placeholder="Nhập số điện thoại"
+                                name="phone"
+                                value={profile.phone}
+                                onChange={handleChange}
                             />
                         </div>
+
                     </div>
                 </div>
 
+                {/* HEALTH */}
                 <div className={styles.card}>
-                    <h2>Hồ Sơ Sức Khỏe</h2>
-                    <p>Cập nhật thông tin sức khỏe của bạn</p>
 
-                    {/* Họ và tên */}
+                    <h2>Hồ Sơ Sức Khỏe</h2>
+
                     <div className={styles.formGroup}>
                         <label>Họ và tên</label>
-                        <input className={styles.full} />
+                        <input
+                            name="fullName"
+                            value={profile.fullName}
+                            onChange={handleChange}
+                        />
                     </div>
 
-                    {/* Tuổi + Chiều cao + Cân nặng */}
                     <div className={styles.row}>
-                        <div className={styles.formGroup}>
-                            <label>Tuổi</label>
-                            <input type="number" />
-                        </div>
 
                         <div className={styles.formGroup}>
-                            <label>Chiều cao (cm)</label>
+                            <label>Ngày sinh</label>
                             <input
-                                type="number"
-                                value={height}
-                                onChange={(e) => setHeight(e.target.value)}
+                                type="date"
+                                name="dateOfBirth"
+                                value={profile.dateOfBirth}
+                                onChange={handleChange}
                             />
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label>Cân nặng (kg)</label>
+                            <label>Chiều cao</label>
                             <input
                                 type="number"
-                                value={weight}
-                                onChange={(e) => setWeight(e.target.value)}
+                                name="height"
+                                value={profile.height}
+                                onChange={handleChange}
                             />
                         </div>
+
+                        <div className={styles.formGroup}>
+                            <label>Cân nặng</label>
+                            <input
+                                type="number"
+                                name="weight"
+                                value={profile.weight}
+                                onChange={handleChange}
+                            />
+                        </div>
+
                     </div>
 
-                    <button className={styles.btn}>Lưu thay đổi</button>
+                    <button
+                        className={styles.btn}
+                        onClick={updateProfile}
+                    >
+                        Lưu thay đổi
+                    </button>
+
                 </div>
+
                 {/* BMI */}
-                <div className={styles.page}>
-                    <div className={styles.layout}>
+                <div className={styles.card}>
 
-                        {/* CỘT TRÁI – CHỈ SỐ */}
-                        <div className={styles.left}>
-                            <div className={`${styles.card} ${styles.bmiCard}`}>
-                                <h2>Chỉ Số BMI</h2>
-                                <p>Body Mass Index - Chỉ số khối cơ thể</p>
+                    <h2>Chỉ Số BMI</h2>
 
-                                {bmi ? (
-                                    <>
-                                        <div className={styles.bmiValue}>{bmi}</div>
-                                        <div className={styles.bmiStatus}>{status}</div>
-                                        <p className={styles.note}>
-                                            Dựa trên chiều cao và cân nặng
-                                        </p>
-                                    </>
-                                ) : (
-                                    <p className={styles.note}>
-                                        Chưa đủ dữ liệu
-                                    </p>
-                                )}
-                            </div>
-                        </div>
+                    {bmi ? (
 
-                    </div>
+                        <>
+                            <div className={styles.bmiValue}>{bmi}</div>
+                            <div className={styles.bmiStatus}>{status}</div>
+                        </>
+
+                    ) : (
+
+                        <p>Chưa đủ dữ liệu</p>
+
+                    )}
+
                 </div>
+
             </div>
         </div>
+
     );
+
 }

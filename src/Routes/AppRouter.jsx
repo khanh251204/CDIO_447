@@ -6,7 +6,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import PrivateLayout from "./PrivateLayout";
 import {Dashboard} from "../Pages/Dashboard"
-import {Profile} from "../Pages/Profile"
+import {Profile} from "../Pages/profile"
 
 export const AppRouter = () => {
     return (
