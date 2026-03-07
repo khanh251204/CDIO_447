@@ -1,14 +1,14 @@
-import styles from './SideBar.module.css';
+import styles from "./SideBar.module.css";
 import { jwtDecode } from "jwt-decode";
-import Notification from '../Layouts/Notification';
-
+import { Link } from "react-router-dom";
 
 export const SideBar = () => {
+
     const SIDEBAR_MENU = [
         {
             label: "Dashboard",
             path: "/dashboard",
-            roles: ["admin", "doctor", "Patient"],
+            roles: ["admin", "doctor", "patient"],
         },
         {
             label: "Quản lý người dùng",
@@ -28,33 +28,46 @@ export const SideBar = () => {
         {
             label: "Lịch khám",
             path: "/appointments",
-            roles: ["doctor", "Patient"],
+            roles: ["doctor", "patient"],
         },
         {
             label: "Hồ sơ cá nhân",
             path: "/profile",
-            roles: ["doctor", "Patient"],
+            roles: ["doctor", "patient"],
         },
     ];
+
     const token = localStorage.getItem("token");
+
     const user = token ? jwtDecode(token) : null;
-    const userRole = user ? user.role : null;
-    const filteredMenu = SIDEBAR_MENU.filter(item => item.roles.includes(userRole));
+
+    const userRole = user?.role;
+
+    const filteredMenu = SIDEBAR_MENU.filter(item =>
+        item.roles.includes(userRole)
+    );
+
     return (
         <div className={styles.sideBar}>
+
             <ul>
+
                 {filteredMenu.map((item, index) => (
                     <li key={index}>
-                        <a href={item.path}>{item.label}</a>
+                        <Link to={item.path}>
+                            {item.label}
+                        </Link>
                     </li>
                 ))}
+
                 <li>
-                    {/* <a href="/logout">Đăng xuất</a> */}
-                    <Notification
-                        userId={user.userId}
-                    />
+                    <Link to="/logout">
+                        Đăng xuất
+                    </Link>
                 </li>
+
             </ul>
+
         </div>
-    )
-}
+    );
+};

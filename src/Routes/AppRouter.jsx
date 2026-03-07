@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import PrivateLayout from "./PrivateLayout";
 import {Dashboard} from "../Pages/Dashboard"
 import {Profile} from "../Pages/profile"
+import {Patients} from "../Pages/Patients"
 
 export const AppRouter = () => {
     return (
@@ -53,6 +54,7 @@ export const AppRouter = () => {
                 {/* 👇 TẤT CẢ NẰM TRONG OUTLET */}
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/patients" element={<Patients />} />
                 {/* sau này thêm */}
                 {/* <Route path="/profile" element={<Profile />} /> */}
                 {/* <Route path="/orders" element={<Orders />} /> */}
