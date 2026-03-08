@@ -18,7 +18,6 @@ export const useLogout = () => {
             console.error("Logout API failed", err);
         } finally {
             localStorage.removeItem("token");
-            localStorage.removeItem("user");
             navigate("/login", { replace: true });
         }
     };

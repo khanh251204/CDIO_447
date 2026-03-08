@@ -37,18 +37,13 @@ export const useLogin = () => {
             if (data.success) {
                 // Lưu token
                 localStorage.setItem('token', data.token);
-
-                // Lưu thông tin user (nếu có)
-                if (data.user) {
-                    localStorage.setItem('user', JSON.stringify(data.user));
-                }
-                toast.success('Đăng nhập thành công');
+                toast.success(data.message || 'Đăng nhập thành công');
                 // Điều hướng về trang chủ
                 setLoading(false);
                 navigate('/dashboard');
             }
         } catch (err) {
-            const errorMessage = err.message || 'Lỗi khi đăng nhập';
+            const errorMessage = err.message || 'Đăng nhập thất bại';
             toast.error(errorMessage);
             setLoading(false);
             console.error('Login API failed', err);

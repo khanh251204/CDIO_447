@@ -1,0 +1,291 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.page {
+  background: linear-gradient(135deg, #e6f4ff, #f8fbff);
+  min-height: 100vh;
+  padding: 50px 20px;
+}
+
+.card {
+  background: #ffffff;
+  max-width: 1150px;
+  margin: auto;
+  border-radius: 18px;
+  padding: 45px 55px;
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.08);
+}
+
+h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.section {
+  margin-top: 35px;
+}
+
+/* ================= SELECT ================= */
+
+.select {
+  width: 300px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* ================= DOCTOR ================= */
+
+.doctors {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.doctor {
+  display: flex;
+  gap: 15px;
+  border: 1px solid #e5e7eb;
+  padding: 16px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  width: 280px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.doctor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+}
+
+.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.dept {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ================= GRID ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 35px;
+}
+
+/* ================= CALENDAR ================= */
+
+.calendar {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  width: 300px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+}
+
+.calHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #1e3a8a;
+}
+
+.calHeader button {
+  border: none;
+  background: #f1f5f9;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.calHeader button:hover {
+  background: #dbeafe;
+}
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.day {
+  padding: 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.day:hover {
+  background: #f3f4f6;
+}
+
+.dayActive {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+.disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background: transparent;
+}
+
+/* ================= TIME ================= */
+
+.times {
+  display: grid;
+  grid-template-columns: repeat(3, 95px);
+  gap: 16px;
+}
+
+.timeBtn {
+  padding: 11px 0;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+.timeBtn:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.timeActive {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  border-color: #2563eb;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+/* ================= NOTE ================= */
+
+.note {
+  margin-top: 25px;
+  background: #f0f9ff;
+  border-left: 5px solid #2563eb;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1e3a8a;
+}
+
+/* ================= TEXTAREA ================= */
+
+.textarea {
+  width: 100%;
+  height: 120px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  resize: none;
+  transition: 0.25s;
+  font-size: 14px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 35px;
+}
+
+.submit {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  border: none;
+  padding: 13px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .calendar {
+    width: 100%;
+  }
+
+  .times {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .doctor {
+    width: 100%;
+  }
+}

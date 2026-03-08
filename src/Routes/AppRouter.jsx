@@ -8,6 +8,7 @@ import PrivateLayout from "./PrivateLayout";
 import {Dashboard} from "../Pages/Dashboard"
 import {Profile} from "../Pages/profile"
 import {Patients} from "../Pages/Patients"
+import { BookAppointment } from "../Pages/BookAppoiment";
 
 export const AppRouter = () => {
     return (
@@ -55,6 +56,8 @@ export const AppRouter = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/patients" element={<Patients />} />
+                <Route path="appointments" element={<BookAppointment />} />
+
                 {/* sau này thêm */}
                 {/* <Route path="/profile" element={<Profile />} /> */}
                 {/* <Route path="/orders" element={<Orders />} /> */}

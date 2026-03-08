@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import styles from "./Home.module.css";
 
 export const Home = () => {
@@ -19,7 +20,9 @@ export const Home = () => {
 
 					<div className={styles.buttons}>
 						<button className={styles.primaryBtn}>Bắt đầu miễn phí <i className="fa-solid fa-angle-right"></i></button>
-						<button className={styles.secondaryBtn}>Đăng nhập</button>
+						<button className={styles.secondaryBtn}>
+							<Link to="/login">Đăng nhập</Link>
+						</button>
 					</div>
 				</div>
 

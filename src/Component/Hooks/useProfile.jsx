@@ -25,6 +25,7 @@ export const useProfile = () => {
 
             const res = await fetch("http://localhost:3000/api/profile", {
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
                 }
             });

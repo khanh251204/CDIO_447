@@ -1,9 +1,10 @@
 import styles from "./SideBar.module.css";
 import { jwtDecode } from "jwt-decode";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {toast} from "react-toastify";
 
 export const SideBar = () => {
-
+    const navigate = useNavigate();
     const SIDEBAR_MENU = [
         {
             label: "Dashboard",
@@ -11,8 +12,8 @@ export const SideBar = () => {
             roles: ["admin", "doctor", "patient"],
         },
         {
-            label: "Quản lý người dùng",
-            path: "/users",
+            label: "Quản lý bệnh nhân",
+            path: "/patients",
             roles: ["admin"],
         },
         {
@@ -36,6 +37,26 @@ export const SideBar = () => {
             roles: ["doctor", "patient"],
         },
     ];
+    const fetchLogout =  async() => {
+        try {
+            const response = await fetch("http://localhost:3000/api/logout", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            });
+            const data = await response.json();
+            if (data.success) {
+                localStorage.removeItem("token");
+                navigate("/login");
+                toast.success(data.message);
+            }
+        } catch (err) {
+            console.error("Logout API failed", err);
+            toast.error("Đăng xuất thất bại");
+        }
+    };
 
     const token = localStorage.getItem("token");
 
@@ -61,7 +82,7 @@ export const SideBar = () => {
                 ))}
 
                 <li>
-                    <Link to="/logout">
+                    <Link  onClick={fetchLogout}>
                         Đăng xuất
                     </Link>
                 </li>
