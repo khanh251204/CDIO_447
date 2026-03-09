@@ -172,10 +172,9 @@ export function BookAppointment() {
                                 <div
                                     key={d._id}
                                     className={`${styles.doctor} ${
-                                        selectedDoctor === d._id ? styles.active : ""
+                                        selectedDoctor === d.doctorId ? styles.active : ""
                                     }`}
-                                    onClick={()=>{setSelectedDoctor(d._id)
-                                        console.log("Selected doctor ID:", d._id);}
+                                    onClick={()=>setSelectedDoctor(d.doctorId)
                                     }
                                 >
 
