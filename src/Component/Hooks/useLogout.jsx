@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 export const useLogout = () => {
     const navigate = useNavigate();
 
-    const logout = async () => {
+    const fetchLogout = async () => {
 
         try {
             await fetch("http://localhost:3000/api/logout", {
@@ -22,5 +22,5 @@ export const useLogout = () => {
         }
     };
 
-    return { logout };
+    return { fetchLogout };
 };

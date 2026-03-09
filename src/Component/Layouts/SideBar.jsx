@@ -2,6 +2,7 @@ import styles from "./SideBar.module.css";
 import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 import {toast} from "react-toastify";
+import {useLogout} from "../Hooks/useLogout";
 
 export const SideBar = () => {
     const navigate = useNavigate();
@@ -37,26 +38,7 @@ export const SideBar = () => {
             roles: ["doctor", "patient"],
         },
     ];
-    const fetchLogout =  async() => {
-        try {
-            const response = await fetch("http://localhost:3000/api/logout", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
-            });
-            const data = await response.json();
-            if (data.success) {
-                localStorage.removeItem("token");
-                navigate("/login");
-                toast.success(data.message);
-            }
-        } catch (err) {
-            console.error("Logout API failed", err);
-            toast.error("Đăng xuất thất bại");
-        }
-    };
+    const {fetchLogout} = useLogout();
 
     const token = localStorage.getItem("token");
 

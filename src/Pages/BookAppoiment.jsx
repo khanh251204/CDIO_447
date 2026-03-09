@@ -23,36 +23,33 @@ export function BookAppointment() {
         "Jul","Aug","Sep","Oct","Nov","Dec"
     ];
 
-    const token = localStorage.getItem("token");
+    
 
     // ===== FETCH DOCTORS =====
     useEffect(()=>{
         fetchDoctors();
     },[])
 
-    const fetchDoctors = async () => {
-
-        if(!token){
-            toast.error("Bạn cần đăng nhập");
-            return;
-        }
+    const fetchDoctors = async () => { // async hàm bất đồng bộ, vì chúng ta sẽ gọi API để lấy dữ liệu bác sĩ, nên cần sử dụng async/await để xử lý bất đồng bộ
 
         try{
-
+ // Gọi API để lấy danh sách bác sĩ, đính kèm token trong header để xác thực
             const response = await fetch("http://localhost:3000/api/doctors",{
+                method:"GET",
                 headers:{
                     "Content-Type":"application/json",
-                    Authorization:`Bearer ${token}`
+                    Authorization:`Bearer ${localStorage.getItem("token")}`
                 }
             })
 
-            const data = await response.json();
+            const data = await response.json(); // Chuyển đổi phản hồi thành JSON để dễ dàng xử lý
 
-            if(!response.ok){
-                throw new Error(data.message);
+            if (data.success) {
+                setDoctors(data.data);
+                
+            }else {
+                throw new Error(data.message || "Không thể tải danh sách bác sĩ");
             }
-
-            setDoctors(data.data);
 
         }catch(err){
             console.error(err);
@@ -62,28 +59,25 @@ export function BookAppointment() {
 
     // ===== GET DEPARTMENTS =====
     const departments = [...new Set(doctors.map(d => d.department))];
-
+// Sử dụng Set để lấy danh sách khoa duy nhất từ mảng bác sĩ, sau đó chuyển lại thành mảng bằng spread operator
     // ===== FILTER DOCTORS =====
-    const filteredDoctors = doctors.filter(
-        d => d.department === selectedDept
+    const filteredDoctors = doctors.filter( // Lọc bác sĩ dựa trên khoa đã chọn
+        d => d.department === selectedDept // Lọc danh sách bác sĩ dựa trên khoa đã chọn
     );
 
     // ===== CALENDAR =====
     const firstDay = new Date(year,month,1).getDay();
     const daysInMonth = new Date(year,month+1,0).getDate();
 
-    const isPastDate = (day)=>{
-        const date = new Date(year,month,day);
-        return date < today;
+    const isPastDate = (day)=>{ // Hàm kiểm tra xem ngày đã qua hay chưa
+        const date = new Date(year,month,day); // Tạo đối tượng Date từ năm, tháng và ngày đã chọn
+        return date < today; // So sánh với ngày hiện tại để xác định xem ngày đã qua hay chưa
     }
 
     // ===== CREATE APPOINTMENT =====
     const createAppointment = async () => {
 
-        if(!token){
-            toast.error("Bạn cần đăng nhập.");
-            return;
-        }
+       
 
         try{
 
@@ -93,7 +87,7 @@ export function BookAppointment() {
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",
-                    Authorization:`Bearer ${token}`
+                    Authorization:`Bearer ${localStorage.getItem("token")}`
                 },
                 body:JSON.stringify({
                     doctorId:selectedDoctor,
@@ -105,12 +99,11 @@ export function BookAppointment() {
 
             const data = await response.json();
 
-            if(!response.ok){
-                throw new Error(data.message || "Đặt lịch thất bại");
+            if(!data.success){
+                toast.error(data.message || "Đặt lịch thất bại");
+            }else {
+                toast.success("Đặt lịch thành công!");
             }
-
-            toast.success("Đặt lịch thành công!");
-
             // reset form
             setSelectedDept("");
             setSelectedDoctor(null);
@@ -181,7 +174,9 @@ export function BookAppointment() {
                                     className={`${styles.doctor} ${
                                         selectedDoctor === d._id ? styles.active : ""
                                     }`}
-                                    onClick={()=>setSelectedDoctor(d._id)}
+                                    onClick={()=>{setSelectedDoctor(d._id)
+                                        console.log("Selected doctor ID:", d._id);}
+                                    }
                                 >
 
                                     <div className={styles.avatar}>👨‍⚕️</div>
