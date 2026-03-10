@@ -11,7 +11,7 @@ import {Patients} from "../Pages/Patients"
 import { BookAppointment } from "../Pages/BookAppoiment";
 import {Doctor} from "../Pages/Doctor";
 import {History} from "../Pages/History";
-
+import {Patient} from "../Pages/Patient";
 export const AppRouter = () => {
     return (
         <Routes>
@@ -68,6 +68,7 @@ export const AppRouter = () => {
                 <Route path="/patients" element={<Patients />} />
                 <Route path="/appointments" element={<BookAppointment />} />
                 <Route path="/history" element={<History />} />
+                <Route path="/patient" element={<Patient />} />
 
 
                 {/* sau này thêm */}

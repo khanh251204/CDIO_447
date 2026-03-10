@@ -14,7 +14,7 @@ export const SideBar = () => {
         },
         {
             label: "Quản lý bệnh nhân",
-            path: "/patients",
+            path: "/patient",
             roles: ["admin"],
         },
         {
