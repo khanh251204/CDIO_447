@@ -9,7 +9,8 @@ export const useProfile = () => {
         fullName: "",
         dateOfBirth: "",
         height: "",
-        weight: ""
+        weight: "",
+        role: ""
     });
 
     const [loading, setLoading] = useState(false);
@@ -44,7 +45,13 @@ export const useProfile = () => {
                         ? user.dateOfBirth.split("T")[0]
                         : "",
                     height: user.height || "",
-                    weight: user.weight || ""
+                    weight: user.weight || "",
+                    role: user.role || "",
+                    specialty: user.specialty || "",
+                    department: user.department || "",
+                    experienceYears: user.experienceYears || "",
+                    hospital: user.hospital || "",
+                    licenseNumber: user.licenseNumber || ""
                 });
 
             } else {

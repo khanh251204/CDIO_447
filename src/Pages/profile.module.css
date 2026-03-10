@@ -1,25 +1,27 @@
 .page {
-    background: #f5f7fb;
-    min-height: 100vh;
-    padding: 40px 0;
-    margin-bottom: 50px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  padding: 40px 0;
+  margin-bottom: 50px;
 }
 
 .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 16px;
-    text-align: left;
-    margin-top: 40px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: left;
+  margin-top: 40px;
 }
+
 .container h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
+
 .container p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 30px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
 }
 
 .card {
@@ -94,26 +96,27 @@
 }
 
 input {
-    flex: 1;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 input:disabled {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 .btn {
-    width: 100%;
-    padding: 12px;
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
 }
+
 .bmiCard {
   position: relative;
 }
@@ -139,4 +142,14 @@ input:disabled {
   font-weight: 600;
   color: #16a34a;
   margin-top: 4px;
+}
+
+
+.text {
+  display: block;
+  padding: 10px;
+  background: #f5f6fa;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
 }
