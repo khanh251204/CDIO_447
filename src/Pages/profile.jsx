@@ -64,7 +64,7 @@ export function Profile() {
                             <input
                                 type="tel"
                                 name="phone"
-                                value={profile.phone}
+                                value={profile.phone ||""}
                                 onChange={handleChange}
                             />
                         </div>
@@ -81,7 +81,7 @@ export function Profile() {
                         <label>Họ và tên</label>
                         <input
                             name="fullName"
-                            value={profile.fullName}
+                            value={profile.fullName ||""}
                             onChange={handleChange}
                         />
                     </div>
@@ -93,7 +93,7 @@ export function Profile() {
                             <input
                                 type="date"
                                 name="dateOfBirth"
-                                value={profile.dateOfBirth}
+                                value={profile.dateOfBirth ||""}
                                 onChange={handleChange}
                             />
                         </div>
@@ -103,7 +103,7 @@ export function Profile() {
                             <input
                                 type="number"
                                 name="height"
-                                value={profile.height}
+                                value={profile.height ||""}
                                 onChange={handleChange}
                             />
                         </div>
@@ -113,7 +113,7 @@ export function Profile() {
                             <input
                                 type="number"
                                 name="weight"
-                                value={profile.weight}
+                                value={profile.weight ||""}
                                 onChange={handleChange}
                             />
                         </div>

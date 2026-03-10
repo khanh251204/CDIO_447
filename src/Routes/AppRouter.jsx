@@ -9,6 +9,7 @@ import {Dashboard} from "../Pages/Dashboard"
 import {Profile} from "../Pages/profile"
 import {Patients} from "../Pages/Patients"
 import { BookAppointment } from "../Pages/BookAppoiment";
+import {Doctor} from "../Pages/Doctor";
 
 export const AppRouter = () => {
     return (
@@ -32,6 +33,14 @@ export const AppRouter = () => {
                 element={
                     <GuestRoute>
                         <Login />
+                    </GuestRoute>
+                }
+            />
+            <Route
+                path="/doctor"
+                element={
+                    <GuestRoute>
+                        <Doctor />
                     </GuestRoute>
                 }
             />

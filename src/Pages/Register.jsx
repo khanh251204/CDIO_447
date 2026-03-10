@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import styles from "./Register.module.css";
 import Input from "../Component/UI/Input";
 import Button from "../Component/UI/Button";
+import { toast } from "react-toastify"
 
 function Register() {
     // khoi tao ham dieu huong
@@ -12,15 +13,17 @@ function Register() {
 
     // sate luu du lieu form dky
     const [formData, setFormData] = useState({
-        fullname: "",
+        fullName: "",
         email: "",
         phone: "",
         password: "",
+        dateOfBirth: "",
+        gender: "",
+        height: "",
+        weight: "",
         confirmPassword: ""
     })
 
-    // sate luu tb loi
-    const [error, setError] = useState("")
 
     // dinh dang email 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -45,57 +48,70 @@ function Register() {
     // ham xu ly khi submit form 
     const handleSubmit = (e) => {
         e.preventDefault()//Ngăn trình duyệt reload trang
-        setError("")//xoa loi
-
-        //lay dl tu formData
-        const { fullname, email, phone, password, confirmPassword } = formData
-
         //ktra da dien du tt ch
-        if (!fullname) {
-            setError("Vui lòng nhập họ và tên")
+
+        if (!formData.fullName) {
+            toast.error("Vui lòng nhập họ và tên")
             return
         }
-        if (!email) {
-            setError("Vui lòng nhập email")
+        if (!formData.email) {
+            toast.error("Vui lòng nhập email")
             return
         }
-        if (!phone) {
-            setError("Vui lòng nhập số điện thoại")
+        if (!formData.phone) {
+            toast.error("Vui lòng nhập số điện thoại")
             return
         }
-        if (!password) {
-            setError("Vui lòng nhập password")
+        if (!formData.password) {
+            toast.error("Vui lòng nhập password")
             return
         }
-        if (!confirmPassword) {
-            setError("Vui lòng nhập họ và tên")
+        if (!formData.confirmPassword) {
+            toast.error("Vui lòng nhập lại mật khẩu")
             return
         }
 
         // ktra dung dinh dang ko 
-        if (!emailRegex.test(email)) {
-            setError("Email không hợp lệ")
+        if (!emailRegex.test(formData.email)) {
+            toast.error("Email không hợp lệ")
             return
         }
-        if (!phoneRegex.test(phone)) {
-            setError("Số điện thoại không hợp lệ ")
+        if (!phoneRegex.test(formData.phone)) {
+            toast.error("Số điện thoại không hợp lệ ")
             return
         }
-        if (!passwordRegex.test(password)) {
-            setError("Mật khẩu phải ≥ 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt không hợp lệ ")
+        if (!passwordRegex.test(formData.password)) {
+            toast.error("Mật khẩu phải ≥ 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt không hợp lệ ")
             return
         }
 
         //ktra conf pw co trung ko 
-        if (password != confirmPassword) {
-            setError("Mật khẩu không khớp")
+        if (formData.password !== formData.confirmPassword) {
+            toast.error("Mật khẩu không khớp")
             return
         }
+        const fetchRegister = async () => {
+            try {
+                const response = await fetch("http://localhost:3000/api/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                });
+                const data = await response.json();
 
-        //dung het dky thanh cong
-        alert("Đăng ký thành công")
-        //chuyen sang trang login
-        navigate("/login")
+                if (data.success) {
+                    toast.success(data.message);
+                    navigate("/login");
+                } else {
+                    toast.error(data.message);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchRegister();
     }
 
     //giao dien
@@ -105,13 +121,12 @@ function Register() {
                 <div className={styles.formRegis}>
                     <h1>Đăng ký</h1>
                     <h5>Vui lòng điền đầy đủ thông tin để đăng ký</h5>
-                    {error && <p className={styles.error}>{error}</p>}
                     <form onSubmit={handleSubmit}>
                         <Input
                             label="Họ tên"
                             type="text"
-                            name="fullname"
-                            value={formData.fullname}
+                            name="fullName"
+                            value={formData.fullName}
                             onChange={handleChange}
                             placeholder="Nhập họ tên"
                         />
@@ -131,6 +146,43 @@ function Register() {
                             onChange={handleChange}
                             placeholder="Nhập số điện thoại"
                         />
+                        <select
+                            name="gender"
+                            value={formData.gender}
+                            onChange={handleChange}
+                        >
+                            <option value="">Chọn giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                        {/* Datebirth */}
+                        <Input
+                            label="Ngày sinh"
+                            type="date"
+                            name="dateOfBirth"
+                            value={formData.dateOfBirth}
+                            onChange={handleChange}
+                        />
+                        {/* Height */}
+                        <Input
+                            label="Chiều cao (cm)"
+                            type="number"
+                            name="height"
+                            value={formData.height}
+                            onChange={handleChange}
+                            placeholder="Nhập chiều cao"
+                        />
+                        {/* Weight */}
+                        <Input
+                            label="Cân nặng (kg)"
+                            type="number"
+                            name="weight"
+                            value={formData.weight}
+                            onChange={handleChange}
+                            placeholder="Nhập cân nặng"
+                        />
+                        {/* Password */}
                         <Input
                             label="Mật khẩu"
                             type="password"
