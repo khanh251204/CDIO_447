@@ -37,6 +37,11 @@ export const SideBar = () => {
             path: "/profile",
             roles: ["doctor", "patient"],
         },
+        {
+            label: "Lịch sử khám",
+            path: "/history",
+            roles: ["doctor", "patient"],
+        },
     ];
     const {fetchLogout} = useLogout();
 
