@@ -2,7 +2,7 @@ import { Home } from "../Pages/Home";
 import { PrivateRoute } from "./Private";
 import { GuestRoute } from "./GuestRoute";
 import { Routes, Route } from "react-router-dom";
-import Register from "../Pages/Register";
+import {Registers} from "../Pages/Registers";
 import Login from "../Pages/Login";
 import PrivateLayout from "./PrivateLayout";
 import {Dashboard} from "../Pages/Dashboard"
@@ -25,7 +25,7 @@ export const AppRouter = () => {
                 path="/register"
                 element={
                     <GuestRoute>
-                        <Register />
+                        <Registers />
                     </GuestRoute>
                 }
             />
@@ -37,14 +37,7 @@ export const AppRouter = () => {
                     </GuestRoute>
                 }
             />
-            <Route
-                path="/doctor"
-                element={
-                    <GuestRoute>
-                        <Doctor />
-                    </GuestRoute>
-                }
-            />
+           
 
             {/* <Route
                 path="/dashboard"
@@ -69,6 +62,7 @@ export const AppRouter = () => {
                 <Route path="/appointments" element={<BookAppointment />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/patient" element={<Patient />} />
+                <Route path="/doctors" element={<Doctor />} />
 
 
                 {/* sau này thêm */}
