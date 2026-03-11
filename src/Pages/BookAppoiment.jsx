@@ -34,7 +34,7 @@ export function BookAppointment() {
 
         try{
  // Gọi API để lấy danh sách bác sĩ, đính kèm token trong header để xác thực
-            const response = await fetch("http://localhost:3000/api/doctors",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/doctors`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json",
@@ -83,7 +83,7 @@ export function BookAppointment() {
 
             const date = `${year}-${String(month+1).padStart(2,'0')}-${String(selectedDay).padStart(2,'0')}`;
 
-            const response = await fetch("http://localhost:3000/api/appointment",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointment`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",

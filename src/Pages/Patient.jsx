@@ -52,7 +52,7 @@ export function Patient() {
     // --- API CALLS ---
     const fetchAppointments = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/appointments", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             });
             const data = await res.json();
@@ -103,8 +103,8 @@ export function Patient() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const url = isEditMode
-            ? `http://localhost:3000/api/appointment/${currentId}`
-            : "http://localhost:3000/api/appointment";
+            ? `${import.meta.env.VITE_API_URL}/api/appointment/${currentId}`
+            : `${import.meta.env.VITE_API_URL}/api/appointment`;
 
         try {
             const res = await fetch(url, {

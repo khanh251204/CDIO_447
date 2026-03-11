@@ -24,7 +24,7 @@ export const useProfile = () => {
 
             const token = localStorage.getItem("token");
 
-            const res = await fetch("http://localhost:3000/api/profile", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`

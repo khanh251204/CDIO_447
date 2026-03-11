@@ -6,7 +6,7 @@ export const useLogout = () => {
     const fetchLogout = async () => {
 
         try {
-            await fetch("http://localhost:3000/api/logout", {
+            await fetch(`${import.meta.env.VITE_API_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

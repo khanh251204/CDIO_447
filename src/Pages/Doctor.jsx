@@ -104,7 +104,7 @@ export function Doctor() {
 
         try {
 
-            const res = await fetch("http://localhost:3000/api/doctors", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/doctors`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
@@ -169,7 +169,7 @@ export function Doctor() {
         try {
 
             const res = await fetch(
-                `http://localhost:3000/api/doctors/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/doctors/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -202,8 +202,8 @@ export function Doctor() {
         }
 
         const url = isEditMode
-            ? `http://localhost:3000/api/doctors/${currentId}`
-            : "http://localhost:3000/api/doctors";
+            ? `${import.meta.env.VITE_API_URL}/api/doctors/${currentId}`
+            : `${import.meta.env.VITE_API_URL}/api/doctors`;
 
         try {
 
