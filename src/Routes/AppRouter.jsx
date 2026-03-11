@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import {Registers} from "../Pages/Registers";
 import Login from "../Pages/Login";
 import PrivateLayout from "./PrivateLayout";
-import {Dashboard} from "../Pages/Dashboard"
+import {Dashboard} from "../Pages/dashboard"
 import {Profile} from "../Pages/profile"
 import {Patients} from "../Pages/Patients"
 import { BookAppointment } from "../Pages/BookAppoiment";
