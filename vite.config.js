@@ -8,5 +8,8 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+    allowedHosts: [
+      "cdio-447.onrender.com"
+    ]
   },
 })
